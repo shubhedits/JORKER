@@ -60,8 +60,8 @@
   <div id="timer">Time Left: <span id="time">60</span>s</div>
 
   <div id="game-container">
-    <span id="hand">✊</span>
     <span id="lund">8=======D</span>
+    <span id="hand">✊</span>
   </div>
 
   <div id="game-over">
@@ -101,10 +101,10 @@
           document.getElementById("game-over").style.display = "block";
 
           let resultText = "You got " + score + " jorks! ";
-          if (score < 10) resultText += "Newbie 💀";
-          else if (score < 30) resultText += "Good Jorker 👍";
-          else if (score < 50) resultText += "Great Jorker 🔥";
-          else if (score < 80) resultText += "DAMN JORKER 🤯";
+          if (score < 100) resultText += "Newbie 💀";
+          else if (score < 300) resultText += "Good Jorker 👍";
+          else if (score < 500) resultText += "Great Jorker 🔥";
+          else if (score < 1500) resultText += "DAMN JORKER 🤯";
           else resultText += "YOU'RE A PRO JORKER 🏆 Respect ++";
 
           document.getElementById("result").innerText = resultText;
