@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>JORKING MASTER 💀</title>
+  <title>JORKING MASTER</title>
   <style>
     body {
       background-color: black;
@@ -18,17 +18,31 @@
       height: 100vh;
     }
 
-    #game-container {
-      font-size: 3em;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      user-select: none;
-    }
-
     #scoreboard, #timer {
       font-size: 2em;
       margin: 10px;
+    }
+
+    #game-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    #jork-button {
+      font-size: 2em;
+      padding: 15px 30px;
+      background-color: white;
+      color: black;
+      border: none;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: transform 0.1s ease-in-out;
+    }
+
+    #jork-button:active {
+      transform: scale(1.1);
     }
 
     #game-over {
@@ -60,8 +74,7 @@
   <div id="timer">Time Left: <span id="time">60</span>s</div>
 
   <div id="game-container">
-    <span id="lund">8=======D</span>
-    <span id="hand">✊</span>
+    <button id="jork-button">8=======D</button>
   </div>
 
   <div id="game-over">
@@ -73,22 +86,14 @@
     let score = 0;
     let timeLeft = 60;
     let gameRunning = true;
-    let hand = document.getElementById("hand");
 
     function jork() {
       if (!gameRunning) return;
-
       score++;
       document.getElementById("score").innerText = score;
-
-      // Simulate rubbing animation
-      hand.style.marginRight = "30px";
-      setTimeout(() => {
-        hand.style.marginRight = "0px";
-      }, 100);
     }
 
-    document.getElementById("game-container").addEventListener("mousemove", jork);
+    document.getElementById("jork-button").addEventListener("click", jork);
 
     function startTimer() {
       let timerInterval = setInterval(() => {
@@ -101,11 +106,11 @@
           document.getElementById("game-over").style.display = "block";
 
           let resultText = "You got " + score + " jorks! ";
-          if (score < 100) resultText += "Newbie 💀";
-          else if (score < 300) resultText += "Good Jorker 👍";
-          else if (score < 500) resultText += "Great Jorker 🔥";
-          else if (score < 1500) resultText += "DAMN JORKER 🤯";
-          else resultText += "YOU'RE A PRO JORKER 🏆 Respect ++";
+          if (score < 10) resultText += "Newbie";
+          else if (score < 30) resultText += "Good Jorker";
+          else if (score < 50) resultText += "Great Jorker";
+          else if (score < 80) resultText += "DAMN JORKER";
+          else resultText += "YOU'RE A PRO JORKER - Respect ++";
 
           document.getElementById("result").innerText = resultText;
         }
